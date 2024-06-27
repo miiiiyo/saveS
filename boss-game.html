@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head >
+<meta charset="UTF-8">
+<title>BOSS</title>
+<link rel="stylesheet" href="boss-game.css">
+</head>
+<body>
+	
+	<div id = "game">
+		<!--ジャンプボタン-->
+		<div><button type ="button" id = "btn"></button></div>
+		<!--パンチボタン-->
+		<div><button type ="button" id = "pbtn" name="pbutton"></button></div>
+		<div id = "character"></div>
+		<!--障害物-->
+		<div id = "obstacle"></div>
+		<div id = "obstacle2"></div>
+		<div id = "obstacle3"></div>
+		<div id = "obstacle4"></div>
+		<!--時間ゲージ-->
+		<div class="progress-bar">
+		  <div class="progress-bar-inner"></div>
+		</div>
+		<!--体力-->
+		<div id = "life1"></div>
+		<div id = "life2"></div>
+		<div id = "life3"></div>
+		<!--宇宙人、パンチ画像、「パンチして倒せ！」-->
+		<div id = "boss"></div>
+		<div id = "punch"></div>
+		<div id = "doPunch" ></div>
+		<div id = "renda"></div>
+	
+	</div>
+
+</body>
+
+
+<script>
+	var character =
+		document.getElementById("character");
+	var obstacle =
+		document.getElementById("obstacle"); 
+		obstacle.style.display="none";
+	var obstacle2 =
+		document.getElementById("obstacle2");
+			obstacle2.style.display="none";
+	var obstacle3 =
+		document.getElementById("obstacle3");
+		obstacle3.style.display="none";
+	var obstacle4 =
+		document.getElementById("obstacle4");
+			obstacle4.style.display="none";		
+	var punch =
+		document.getElementById("punch");
+			punch.style.display="none";
+	var pbtn = 
+		document.getElementById("pbtn");
+			pbtn.style.display="none";
+	var text =
+		document.getElementById("doPunch");
+			text.style.display="none";
+	var boss =
+		document.getElementById("boss");
+			boss.style.display="none";
+	var renda =
+		document.getElementById("renda");
+			renda.style.display="none";
+			
+			//ダメージを受けたら画像を変える
+				function damageChange(){
+						character.style.backgroundImage='url(run_businesswoman_aseru.png)';
+						character.style.width="90px";
+						character.style.height="90px";
+						character.style.backgroundSize="cover";
+						setTimeout(function(){
+							character.style.backgroundImage='url(shinsyakaijin_run_woman2.png)';
+							character.style.width="90px";
+							character.style.height="90px";
+							character.style.backgroundSize="cover";		
+								},300);
+					}
+	
+	//20秒でボスが出現
+	var seconds = 0;
+	setInterval(function(){
+		seconds++;
+		console.log(seconds);
+		if(seconds==2){
+			damageChange();
+			obstacle.style.display="block";
+			obstacle2.style.display="block";
+			obstacle3.style.display="block";
+			}
+			if(seconds==3){
+				obstacle4.style.display="block";
+				obstacle.style.display="none";
+			}
+			if(seconds==6){
+				obstacle2.style.display="none";
+				obstacle.style.display="block";
+			}
+			if(seconds==9){
+				obstacle2.style.display="block";
+				obstacle4.style.display="none";
+			}
+			if(seconds==20){
+				pbtn.style.display="block";
+				boss.style.display="block";
+				text.style.display="block";
+				renda.style.display="block";
+				obstacle.style.display="none";
+				obstacle2.style.display="none";
+				obstacle3.style.display="none";
+				obstacle4.style.display="none";
+				bossStart();
+				}
+			if(seconds==27){
+				
+				window.location.href = "weback.html";
+			}
+			
+				
+		
+	},1000);
+	
+	//ボスが右から出てくる
+	function bossStart(){
+		if(boss.classList != "bossStop"){
+			boss.classList.add("bossStop")
+			text.classList.add("bossStop")
+		}
+	}
+	
+	//パンチしなかった場合
+		var bossCheck = setInterval(function(){
+		var bossLeft =
+			parseInt(window.getComputedStyle(boss).getPropertyValue("left"));
+		if(bossLeft<100){
+			damageChange();
+			window.location.href = "lose3.html";
+			}	
+		},1000);
+	
+	 
+	
+	
+	//300ミリ秒ごとにジャンプ可能にする
+	function jump(){
+		if(character.classList != "animate"){
+				character.classList.add("animate");
+			}
+		setTimeout(function(){
+			character.classList.remove("animate");
+		},300);
+	}
+	
+	
+	//ボタンが押されたらジャンプさせる
+	var buttonElm = document.getElementById('btn');
+	buttonElm.addEventListener('click',function(){
+		jump();
+	})
+	
+	//300ミリ秒ごとにパンチ可能にする
+	function punchpunch(){
+		if(punch.classList !="punching"){
+			punch.classList.add("punching");
+		}
+		setTimeout(function(){
+			punch.style.display="none";
+			punch.classList.remove("punching");
+		},300);
+		}
+		
+	//ボスを爆発させる
+	function imageChange(){
+		boss.style.backgroundImage='url(../images/explode.png)';
+		boss.style.width="200px";
+		boss.style.height="200px";
+		boss.style.backgroundSize="cover";
+	}
+	
+			
+	//ボタンが押されたらパンチする、当たったらimageChangeへ、外れたら負け
+	pbtn.addEventListener('click',function(){
+		punch.style.display="block";
+		punchpunch();
+		
+		var bossLeft = 
+				parseInt(window.getComputedStyle(boss).getPropertyValue("left"));
+		const bossStop = document.querySelector(".bossStop");
+		
+			if(bossLeft<=150&&bossLeft>=100){
+				text.style.display="none";
+				obstacle2.style.display="none";
+				obstacle3.style.display="none";
+				punch.style.display="block";
+				bossStop.style.animationPlayState = "paused";
+				imageChange();
+				}
+				if(bossLeft<100){
+					damageChange();
+					window.location.href = "lose3.html";
+				}
+	})
+	
+	//ライフ
+	var lifeOne = document.getElementById("life1");
+	var lifeTwo = document.getElementById("life2");
+	var lifeThree = document.getElementById("life3");
+	
+	
+	//当たり判定
+		var count = 2;
+		var check = setInterval (function(){
+			var characterTop = 
+				parseInt(window.getComputedStyle(character).
+				getPropertyValue("top"));
+			var obstacleLeft = 
+				parseInt(window.getComputedStyle(obstacle).
+					getPropertyValue("left"));
+			var obstacle2Left = 
+				parseInt(window.getComputedStyle(obstacle2).
+					getPropertyValue("left"));
+			var obstacle4Left =
+				parseInt(window.getComputedStyle(obstacle4).
+					getPropertyValue("left"));
+				
+								
+				if(obstacleLeft<40 && obstacleLeft>10 &&
+					characterTop>=190 || obstacle2Left<40&&obstacle2Left>10 && characterTop>=190
+						|| obstacle4Left<40&&obstacle4Left>10 && characterTop>=190
+						){
+					count++;
+					if (count%3==0){
+						damageChange();
+						lifeThree.style.display="none";
+					}else if (count%3==1){
+						damageChange();
+						lifeTwo.style.display="none";
+					}else{
+						damageChange();
+						lifeOne.style.display="none";
+						
+						obstacle.style.display="none";
+						
+						obstacle2.style.display="none";
+						
+						obstacle3.style.display="none";
+						
+						obstacle4.style.display="none";
+						
+						window.location.href = "lose3.html";
+						
+					}
+				}
+			},40);
+					
+		
+	</script>
+	</html>
