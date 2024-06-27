@@ -1,0 +1,104 @@
+@charset "UTF-8";
+body {
+	background-image: url(stage1back.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: yellow;
+	text-align: center;
+	margin-top:500px;
+	margin-bottom: 80px;
+	font-size: 38px;
+}
+
+@media screen and (max-width:390px) {
+	h1 {
+		margin-top:400px;
+	}
+}
+
+@media screen and (min-width:391px) and (max-width:440px) {
+	h1 {
+		margin-top:550px;
+	}
+}
+
+.yoko {
+	text-align: center;
+	color: yellow;
+	margin-bottom: 15px;
+	font-size: 13px;
+	font-weight: bolder;
+}
+
+.buttom_box {
+	text-align: center;
+	
+}
+
+div.buttom_box:hover {
+	    transition: 0.1s;
+	    transform: translateY(4px);
+    }
+
+    div.buttom_box a:hover {
+	    color: #000;
+	    background: #fff;
+        box-shadow: none;
+	    border-color: #D6B656;
+    }
+
+.button {
+	text-decoration: none;
+	
+	-webkit-border-radius: 10px;
+	-moz-boder-radius: 10px;
+	border-radius: 10px;
+	border:4px solid #D6B656;
+	
+	font-family: "M PLUS Rounded 1c", sans-serif;
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px 55px;
+	background: #FFF2CC ;
+	color: black;
+		
+}
+
+.menu {
+     text-align: center;
+     margin-top: 35px;
+}
+
+.menu:hover {
+	 transition: 0.1s;
+	 transform: translateY(4px);
+}
+
+.menu a {
+       text-decoration: none;
+       color: white;
+       font-family: "M PLUS Rounded 1c", sans-serif;
+       font-size: larger;
+}
+
+@media only screen and (min-width:769px) {
+	body {
+		background-size: 355px 725px;
+		background-position: 50% 50%;
+		object-fit: cover;
+	}
+	.menu {
+		margin-bottom: 48px;
+	}
+	
+	h1 {
+		margin-top:420px;
+	}
+}
