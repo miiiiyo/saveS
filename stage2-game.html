@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head >
+<meta charset="UTF-8">
+<title>STAGE2</title>
+<link rel="stylesheet" href="stage2-game.css">
+</head>
+<body>
+	
+	<div id = "game">
+		<div><button type ="button" id = "btn"></button></div>
+		<div id = "character"></div>
+		<div id = "obstacle"></div>
+		<div id = "obstacle2"></div>
+		<div id = "obstacle3"></div>
+		<!--時間ゲージ-->
+		<div class="progress-bar">
+		  <div class="progress-bar-inner"></div>
+		</div>
+		<div id = "life1"></div>
+		<div id = "life2"></div>
+		<div id = "life3"></div>
+	
+	</div>
+
+</body>
+
+
+<script>
+	var character =
+		document.getElementById("character");
+	var obstacle =
+		document.getElementById("obstacle");
+		obstacle.style.display="none";
+	var obstacle2 =
+		document.getElementById("obstacle2");
+		obstacle2.style.display="none";
+	var obstacle3 =
+		document.getElementById("obstacle3");
+		obstacle3.style.display="none";
+	//20秒でクリアとする
+	var seconds = 0;
+	setInterval(function(){
+		seconds++;
+		if(seconds==2){
+			obstacle.style.display="block";
+			obstacle2.style.display="block";
+		}
+		//2秒後に障害物２が動き出す
+		if(seconds==2){
+			obstacle2.style.display="block";
+		}
+		if(seconds==3){
+			obstacle3.style.display="block";
+				}
+		if(seconds==7){
+			obstacle2.style.display="none";
+		}
+		if(seconds==9){
+			obstacle2.style.display="block";
+		}
+		if(seconds==20){
+			
+		    window.location.href = "win2.html";
+		}
+	},1000);
+	
+	
+	//300ミリ秒ごとにジャンプ可能にする
+	function jump(){
+		if(character.classList != "animate"){
+				character.classList.add("animate");
+			}
+		setTimeout(function(){
+			character.classList.remove("animate");
+		},300);
+	}
+	
+	
+	//ボタンが押されたらジャンプさせる
+	var buttonElm = document.getElementById('btn');
+	buttonElm.addEventListener('click',function(){
+		jump();
+	})
+	
+	
+	//ライフ
+	var lifeOne = document.getElementById("life1");
+	var lifeTwo = document.getElementById("life2");
+	var lifeThree = document.getElementById("life3");
+	
+	function damageChange(){
+				character.style.backgroundImage='url(run_businesswoman_aseru.png)';
+				character.style.width="90px";
+				character.style.height="90px";
+				character.style.backgroundSize="cover";
+				setTimeout(function(){
+					character.style.backgroundImage='url(shinsyakaijin_run_woman2.png)';
+					character.style.width="90px";
+					character.style.height="90px";
+					character.style.backgroundSize="cover";		
+						},300);
+			}
+	
+	
+	//当たり判定
+	var count = 2;
+	var check = setInterval (function(){
+		var characterTop = 
+			parseInt(window.getComputedStyle(character).
+			getPropertyValue("top"));
+		var obstacleLeft = 
+			parseInt(window.getComputedStyle(obstacle).
+				getPropertyValue("left"));
+		var obstacle2Left = 
+			parseInt(window.getComputedStyle(obstacle2).
+				getPropertyValue("left"));
+			
+							
+			if(obstacleLeft<40 && obstacleLeft>10 &&
+				characterTop>=190 || obstacle2Left<40&&obstacle2Left>10 && characterTop>=190
+					){
+				count++;
+				if (count%3==0){
+					damageChange();
+					lifeThree.style.display="none";
+					console.log('A');
+				}else if (count%3==1){
+					damageChange();
+					lifeTwo.style.display="none";
+					console.log("B");
+				}else{
+					damageChange();
+					lifeOne.style.display="none";
+					
+					obstacle.style.display="none";
+					
+					obstacle2.style.display="none";
+					
+					window.location.href = "lose2.html";
+					console.log("C");
+				}
+				
+			}
+				
+	},40);
+	
+</script>
+</html>
