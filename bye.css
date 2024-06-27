@@ -1,0 +1,393 @@
+@charset "UTF-8";
+
+body {
+	
+	background-image: url(bye-background.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+
+/* iPhone SE */
+@media screen and (max-width: 389px) {
+	body {
+	background-size: 390px 740px;
+	}
+		
+	#ufo {
+		width: 230px;
+		height: 200px;
+    }
+    
+    .img-ufo {
+		text-align: center;
+		position: relative;
+	    z-index: 100;
+	    animation: move 1s;
+	    animation-delay: 6s;
+	    animation-fill-mode: both;
+	}
+	
+	#light {
+		width: 270px;
+		height: 700px;
+	}
+    
+    .img-light {
+	    position: absolute;
+	    z-index: 10;
+	    margin-left: 55px;
+	    margin-top: -70px;
+	    animation: fadeOut 1.8s;
+	    animation-delay: 4s;
+	    animation-fill-mode: both;
+    }
+    
+    #sengoku {
+		width: 370px;
+		height: 488px;
+	}
+	
+	.img-tyokuritu-sengoku {
+		position: absolute;
+		z-index: 110;
+		margin-left: 10px;
+		left: 0px;
+		top: 200px;
+		animation: cu 4s;
+		animation-delay: 1s;
+		animation-fill-mode: forwards;
+	}
+
+    @keyframes move {
+		0% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+		30% { transform: scale(0.8, 1.3) translate(30%, 0%);}
+		31% { transform: scale(1.0, 1.0) translate(0%, 0%);}
+	    100% { transform: scale(1.0, 1.0) translate(-100%, 0%);}
+    }
+
+    @keyframes fadeOut {
+	    0% {
+		    opacity: 1;
+	    }
+	    100% {
+		    opacity: 0;
+	    }
+	 }
+	 
+	 @keyframes cu {
+		100% { top: 0px;
+		       opacity: 0;
+		       transform: scale(0, 0);}
+	}
+
+}
+
+/* iPhone XR */
+@media screen and (min-width: 412px) and (max-width: 429px) {
+	
+	body {
+		background-size: 414px 915px;
+	}
+	
+	#ufo {
+		width: 250px;
+		height: 220px;
+    }
+    
+    .img-ufo {
+		text-align: center;
+		position: relative;
+	    z-index: 100;
+	    animation: move 1s;
+	    animation-delay: 6s;
+	    animation-fill-mode: both;
+	}
+	
+	#light {
+		width: 270px;
+		height: 750px;
+	}
+    
+    .img-light {
+	    position: absolute;
+	    z-index: 10;
+	    margin-left: 75px;
+	    margin-top: -70px;
+	    animation: fadeOut 1.8s;
+	    animation-delay: 4s;
+	    animation-fill-mode: both;
+    }
+    
+     #sengoku {
+		width: 370px;
+		height: 488px;
+	}
+	
+	.img-tyokuritu-sengoku {
+		position: absolute;
+		z-index: 110;
+		margin-left: 30px;
+		left: 0px;
+		top: 400px;
+		animation: cu 4s;
+		animation-delay: 1s;
+		animation-fill-mode: forwards;
+	}
+
+    @keyframes move {
+	   0% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+		30% { transform: scale(0.8, 1.3) translate(30%, 0%);}
+		31% { transform: scale(1.0, 1.0) translate(0%, 0%);}
+	    100% { transform: scale(1.0, 1.0) translate(-100%, 0%);}
+    }
+
+    @keyframes fadeOut {
+	    0% {
+		    opacity: 1;
+	    }
+	    100% {
+		    opacity: 0;
+	    }
+	 }
+	 
+	 @keyframes cu {
+		100% { top: 0px;
+		       opacity: 0;
+		       transform: scale(0, 0);}
+	}
+}
+
+/* iPhone 12 Pro */
+@media screen and (min-width: 390px) and (max-width: 411px) {
+	
+	body {
+		background-size: 390px 844px;
+	}
+	
+	#ufo {
+		width: 250px;
+		height: 220px;
+    }
+    
+    .img-ufo {
+		text-align: center;
+		position: relative;
+	    z-index: 100;
+	    animation: move 1s;
+	    animation-delay: 6s;
+	    animation-fill-mode: both;
+	}
+	
+	#light {
+		width: 270px;
+		height: 720px;
+	}
+    
+    .img-light {
+	    position: absolute;
+	    z-index: 10;
+	    margin-left: 68px;
+	    margin-top: -70px;
+	    animation: fadeOut 1.8s;
+	    animation-delay: 4s;
+	    animation-fill-mode: both;
+    }
+    
+    #sengoku {
+		width: 370px;
+		height: 488px;
+	}
+	
+	.img-tyokuritu-sengoku {
+		position: absolute;
+		z-index: 110;
+		margin-left: 20px;
+		left: 0px;
+		top: 380px;
+		animation: cu 4s;
+		animation-delay: 1s;
+		animation-fill-mode: forwards;
+	}
+
+    @keyframes move {
+	    0% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+		30% { transform: scale(0.8, 1.3) translate(30%, 0%);}
+		31% { transform: scale(1.0, 1.0) translate(0%, 0%);}
+	    100% { transform: scale(1.0, 1.0) translate(-100%, 0%);}
+    }
+
+    @keyframes fadeOut {
+	    0% {
+		    opacity: 1;
+	    }
+	    100% {
+		    opacity: 0;
+	    }
+	 }
+	 
+	 @keyframes cu {
+		100% { top: 0px;
+		       opacity: 0;
+		       transform: scale(0, 0);}
+	}
+}
+
+/* iPhone 14 Pro */
+@media screen and (min-width: 430px) and (max-width: 700px) {
+	
+	body {
+		background-size: 430px 932px;
+	}
+	
+	#ufo {
+		width: 270px;
+		height: 240px;
+    }
+    
+    .img-ufo {
+		text-align: center;
+		position: relative;
+	    z-index: 100;
+	    animation: move 1s;
+	    animation-delay: 6s;
+	    animation-fill-mode: both;
+	}
+	
+	#light {
+		width: 270px;
+		height: 740px;
+	}
+    
+    .img-light {
+	    position: absolute;
+	    z-index: 10;
+	    margin-left: 85px;
+	    margin-top: -70px;
+	    animation: fadeOut 1.8s;
+	    animation-delay: 4s;
+	    animation-fill-mode: both;
+    }
+    
+    #sengoku {
+		width: 370px;
+		height: 488px;
+	}
+	
+	.img-tyokuritu-sengoku {
+		position: absolute;
+		z-index: 110;
+		margin-left: 35px;
+		left: 0px;
+		top: 400px;
+		animation: cu 4s;
+		animation-delay: 1s;
+		animation-fill-mode: forwards;
+	}
+
+    @keyframes move {
+	    0% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+		30% { transform: scale(0.8, 1.3) translate(30%, 0%);}
+		31% { transform: scale(1.0, 1.0) translate(0%, 0%);}
+	    100% { transform: scale(1.0, 1.0) translate(-100%, 0%);}
+    }
+
+    @keyframes fadeOut {
+	    0% {
+		    opacity: 1;
+	    }
+	    100% {
+		    opacity: 0;
+	    }
+	 }
+	 
+	 @keyframes cu {
+		100% { top: 0px;
+		       opacity: 0;
+		       transform: scale(0, 0);}
+	}
+}
+
+@media only screen and (min-width: 769px) {
+	body {
+		background-size: 350px 700px;
+		background-position: 50% 50%;
+		object-fit: cover; 
+		
+	}
+	
+	#ufo {
+		width: 230px;
+		height: 200px;
+    }
+    
+    .img-ufo {
+		text-align: center;
+		position: relative;
+	    z-index: 100;
+	    animation: move 1s;
+	    animation-delay: 6s;
+	    animation-fill-mode: both;
+	}
+	
+	#light {
+		width: 240px;
+		height: 700px;
+		
+	}
+    
+    .img-light {
+		position: absolute;
+	    text-align: center;
+	    z-index: 10;
+	   margin-left: 620px;
+	   margin-top: -50px;
+	    animation: fadeOut 1.8s;
+	    animation-delay: 4s;
+	    animation-fill-mode: both;
+    }
+    
+    #sengoku {
+		width: 370px;
+		height: 488px;
+	}
+	
+	.img-tyokuritu-sengoku {
+		z-index: 110;
+		text-align: center;
+		position: relative;
+		animation: cu 4s;
+		animation-delay: 1s;
+		animation-fill-mode: forwards;
+		
+	}
+	
+	@keyframes move {
+	    0% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+		30% { transform: scale(0.8, 1.3) translate(30%, 0%);}
+		31% { transform: scale(1.0, 1.0) translate(0%, 0%);}
+	    100% { transform: scale(1.0, 1.0) translate(-100%, 0%);}
+    }
+
+    @keyframes fadeOut {
+	    0% {
+		    opacity: 1;
+	    }
+	    100% {
+		    opacity: 0;
+	    }
+	 }
+	 
+	 @keyframes cu {
+		0% {
+			top: 0px;
+			opacity: 1;
+			transform: scale(1, 1);
+		}
+		100% { top: -250px;
+		       opacity: 0;
+		       transform: scale(0, 0);}
+	}
+	 
+	 
+}
