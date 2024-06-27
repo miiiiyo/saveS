@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+ 
+body {
+	
+	background-image: url(help.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: "M PLUS Rounded 1c", sans-serif;
+	text-align: center;
+}
+
+.messageback {
+	margin-top: 90px;
+	display: inline-block;
+	position: relative;
+	margin-bottom: 0px;
+}
+
+.messagebox {
+	
+	position: absolute;
+	top: 15%;
+	left: 10%;
+}
+
+
+
+@media screen and (min-width:360px) {
+	.kaiwa {
+		height:740px;
+	}
+}
+
+@media screen and (min-width:361px) and (max-width:380px) {
+	.kaiwa {
+		height: 667px
+	}
+	
+	
+}
+
+@media screen and (min-width:381px) and (max-width:411px) {
+	.kaiwa {
+		height: 900px
+	}
+	
+	
+}
+
+@media screen and (min-width:412px) and (max-width:440px) {
+	.kaiwa {
+		height: 932px;
+	}
+}
+
+
+
+
+#s1,#s2 {
+	display: block;
+	width:0;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+#s1 {
+	animation:s1 1.8s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes s1 {
+	from{width: 0em;}
+	50% {width: 14em;}
+	to{width:14em;}
+}
+
+#s2 {
+	animation:s2 2s;
+	animation-fill-mode: forwards;
+}
+@keyframes s2 {
+	0% {width:0em}
+	50% {width:0em}
+	to {width:10em}
+}
+
+.buttom_box {
+	text-align: center;
+    margin-top: 0px;
+    margin-left: 130px;
+        
+    opacity: 0;
+    animation: fadeIn 0.5s;
+    animation-delay: 2s;
+	animation-fill-mode: forwards;
+}
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.buttom_box a {
+	
+	text-decoration: none;
+	
+	-webkit-border-radius: 10px;
+	-moz-boder-radius: 10px;
+	border-radius: 10px;
+	border:2px solid #B20000;
+	
+	font-family: "M PLUS Rounded 1c", sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	padding: 7px 20px;
+	background: #E51400 ;
+	color: white;
+	
+}
+
+div.buttom_box:hover {
+	    transition: 0.1s;
+	    transform: translateY(4px);
+    }
+
+    div.buttom_box a:hover {
+	    color: #E51400;
+	    background: #fff;
+        box-shadow: none;
+	    border-color: #B20000;
+    }
+
+@media only screen and (min-width:769px) {
+	body {
+		background-size: 350px 750px;
+		background-position: 50% 50%;
+		object-fit: cover;
+	}
+	.buttom_box {
+		margin-bottom: 445px;
+	}
+ 
+	.messageback {
+		margin-top: 50px;
+	}
+	}
